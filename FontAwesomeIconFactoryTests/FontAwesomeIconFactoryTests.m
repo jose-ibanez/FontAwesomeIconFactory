@@ -42,6 +42,20 @@ static const float EPSILON = 0.0001;
     }
 }
 
+- (void)testSquareImagesShouldBeCorrectSize {
+    _factory.square = YES;
+    _factory.size = 30.0;
+    
+    for (NIKFontAwesomeIcon icon = NIKFontAwesomeIconGlass;
+         icon <= NIKFontAwesomeIconRenren;
+         icon++) {
+        
+        NIKImage *image = [_factory createImageForIcon:icon];
+        assertThatDouble(image.size.height, equalToDouble(30.0));
+        assertThatDouble(image.size.width, equalToDouble(30.0));
+    }
+}
+
 - (void)testEdgeInsetsShouldIncreaseImageSize {
     NIKFontAwesomeIconFactory *insetFactory = [_factory copy];
     insetFactory.edgeInsets = (NIKEdgeInsets){1.0, 3.0, 5.0, 7.0};
