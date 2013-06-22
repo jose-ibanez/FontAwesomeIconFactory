@@ -51,7 +51,7 @@ static const float EPSILON = 0.0001;
          icon++) {
         
         NIKImage *image = [_factory createImageForIcon:icon];
-        assertThatDouble(image.size.height, equalToDouble(30.0));
+        assertThatDouble(image.size.height, equalToDouble(image.size.width));
         assertThatDouble(image.size.width, equalToDouble(30.0));
     }
 }
